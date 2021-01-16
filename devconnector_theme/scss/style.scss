@@ -1,0 +1,75 @@
+@import 'config';
+@import 'utilities';
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Raleway', sans-serif;
+	font-size: 1rem; //1rem by defualt is 16px
+	line-height: 1.6; // space between lines
+	background-color: #fff; //specifies background-color
+	color: #333; // specifies the color of a text
+}
+
+a {
+	text-decoration: none; // removes underlines under a tag
+	color: $primary-color;
+}
+
+ul {
+	list-style: none;
+}
+
+img {
+	width: 100%; // getting the full width of container without breaking out
+}
+
+//Navbar
+.navbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between; //all avalaible space between the items
+	padding: 0.7rem 2rem;
+	position: fixed;
+	z-index: 1;
+	width: 100%;
+	top: 0;
+	border-bottom: solid 1px $primary-color;
+	opacity: 0.9;
+
+	ul {
+		display: flex;
+	}
+	a {
+		color: #fff;
+		padding: 0.45rem;
+		margin: 0 0.25rem;
+
+		&:hover {
+			color: $primary-color;
+		}
+	}
+}
+
+// Landing
+.landing {
+	position: relative;
+	background: url('../img/showcase.jpg') no-repeat center center/cover;
+	height: 100vh;
+
+	&-inner {
+		color: #fff;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		width: 80%;
+		margin: auto;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+	}
+}
