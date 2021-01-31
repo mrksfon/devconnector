@@ -10,7 +10,6 @@ export const getCurrentProfile = () => async dispatch => {
 
     try {
         const res = await axios.get('/api/profile/me');
-        console.log('USAO OVDE');
         dispatch({
             type: GET_PROFILE,
             payload: res.data
