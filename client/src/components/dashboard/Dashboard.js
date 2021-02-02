@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import { deleteAccount, getCurrentProfile } from '../../actions/profile';
-import Spinner from '../layout/Spinner';
+// import Spinner from '../layout/Spinner';
 import { Link } from 'react-router-dom';
 import DashboardActions from './DashboardActions';
 import Experience from './Experience';
@@ -12,7 +12,7 @@ import Education from './Education';
 const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, loading }, deleteAccount }) => {
     useEffect(() => {
         getCurrentProfile();
-    }, []);
+    }, [getCurrentProfile]);
     return (
         <Fragment>
             <h1 className="large text-primary">

@@ -22,7 +22,7 @@ const EditProfile = ({ createProfile, history, getCurrentProfile, profile: { pro
             youtube: loading || !profile.social ? '' : profile.social.youtube,
             instagram: loading || !profile.social ? '' : profile.social.instagram
         });
-    }, [loading]);
+    }, [loading, getCurrentProfile]);
     const [formData, setFormData] = useState({
         company: '',
         website: '',
@@ -65,7 +65,7 @@ const EditProfile = ({ createProfile, history, getCurrentProfile, profile: { pro
 
     return (
         <Fragment>
-            <h1 className="large text-primary">Create Your Profile</h1>
+            <h1 className="large text-primary">Edit Your Profile</h1>
             <p className="lead">
                 <i className="fas fa-user"></i> Let's get some information to make your
 				profile stand out
