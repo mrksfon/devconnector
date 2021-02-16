@@ -34,7 +34,7 @@ const PostItem = ({ addLike, removeLike, deletePost, auth, post: { _id, text, na
                     <i className="fas fa-thumbs-down"></i>
                 </button>
                 {!auth.loading && user === auth.user._id && (
-                    <button type='button' className='btn btn danger' onClick={e => deletePost(_id)} >
+                    <button type='button' className='btn btn-danger' onClick={e => deletePost(_id)} >
                         <i className="fas fa-times"></i>
                     </button>
                 )}
