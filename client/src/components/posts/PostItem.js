@@ -3,21 +3,21 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import Moment from 'react-moment'
 import { connect } from 'react-redux'
-import { addLike, removeLike } from '../../actions/post'
+import { addLike, removeLike, deletePost } from '../../actions/post'
 
 
-const PostItem = ({ addLike, removeLike, auth, post: { _id, text, name, avatar, user, likes, comments, date } }) => {
+const PostItem = ({ addLike, removeLike, deletePost, auth, post: { _id, text, name, avatar, user, likes, comments, date } }) => {
     return (
         <div className="post bg-white my-1 p-1">
             <div>
-                <a href="profile.html">
+                <Link to={`/api/profile/${user}`}>
                     <img
                         className="round-img"
                         src={avatar}
                         alt=""
                     />
                     <h4>{name}</h4>
-                </a>
+                </Link>
             </div>
 
             <div>
@@ -34,7 +34,7 @@ const PostItem = ({ addLike, removeLike, auth, post: { _id, text, name, avatar, 
                     <i className="fas fa-thumbs-down"></i>
                 </button>
                 {!auth.loading && user === auth.user._id && (
-                    <button type='button' className='btn btn danger'>
+                    <button type='button' className='btn btn danger' onClick={e => deletePost(_id)} >
                         <i className="fas fa-times"></i>
                     </button>
                 )}
@@ -43,7 +43,7 @@ const PostItem = ({ addLike, removeLike, auth, post: { _id, text, name, avatar, 
                 </Link>
 
             </div>
-        </div>
+        </div >
     )
 }
 
@@ -53,7 +53,10 @@ PostItem.propTypes = {
 }
 
 const mapStateToProps = state => ({
-    auth: state.auth
+    auth: state.auth,
+    addLike: PropTypes.func.isRequired,
+    removeLike: PropTypes.func.isRequired,
+    deletePost: PropTypes.func.isRequired,
 })
 
-export default connect(mapStateToProps, { addLike, removeLike })(PostItem)
+export default connect(mapStateToProps, { addLike, removeLike, deletePost })(PostItem)
